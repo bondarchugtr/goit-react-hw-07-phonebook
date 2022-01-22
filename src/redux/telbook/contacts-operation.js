@@ -20,9 +20,9 @@ export const addContact = (name) => (dispatch) => {
     phone: name.number,
     completed: false,
   };
-  console.log("first");
 
   dispatch(addContactRequest());
+
   axios
     .post("/contacts", contact)
     .then(({ data }) => dispatch(addContactSuccess(data)))
@@ -40,9 +40,9 @@ export const deleteContact = (id) => (dispatch) => {
 export const fetchContacts = () => (dispatch) => {
   dispatch(fetchContactsRequest());
   console.log("first");
+
   axios
     .get("/contacts")
-    .then((data) => dispatch(fetchContactsSuccess(data)))
+    .then(({ data }) => dispatch(fetchContactsSuccess(data)))
     .catch((error) => dispatch(fetchContactsError("error")));
-  console.log(axios.data);
 };

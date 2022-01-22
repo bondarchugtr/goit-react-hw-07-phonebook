@@ -16,12 +16,6 @@ function PhoneBook() {
   const filters = useSelector(getFilter);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    mapDispatchTopProps();
-    console.log("test");
-    console.log(contacts);
-  }, [contacts]);
-
   const onSubmit = (data) => {
     const contact = {
       name: data.name,
@@ -74,5 +68,4 @@ function PhoneBook() {
 export const mapDispatchTopProps = (dispatch) => ({
   fetchContacts: () => dispatch(fetchContacts()),
 });
-console.log(mapDispatchTopProps());
 export default connect(null, mapDispatchTopProps)(PhoneBook);

@@ -9,7 +9,7 @@ const ContactsList = ({ contacts = [], delContact }) => {
   //   console.log("test");
   //   console.log(contacts);
   // }, []);
-
+  console.log(fetchContacts());
   return (
     <ul className={s.Contact__list}>
       {contacts.map((el) => (

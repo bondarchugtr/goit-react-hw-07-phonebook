@@ -23,6 +23,5 @@ export const fetchContactsSuccess = createAction(
 );
 export const fetchContactsError = createAction("contacts/fetchContactsError");
 
-// export const addContacts = createAction("contacts/addContacts");
-// export const dellContacts = createAction("contacts/dellContacts");
+//filter
 export const addFilter = createAction("contacts/addFilter");
