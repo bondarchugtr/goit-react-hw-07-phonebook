@@ -60,7 +60,6 @@ export const addContact = createAsyncThunk(
 
   async (name) => {
     const contact = {
-      // id: nanoid(),
       name: name.name,
       phone: name.number,
     };

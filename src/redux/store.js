@@ -12,23 +12,13 @@ import {
 } from "redux-persist";
 
 const logger = createLogger();
-let middleware = [];
-if (process.env.NODE_ENV === "development") {
-  middleware = (getDefaultMiddleware) => [
-    ...getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
-    logger,
-  ];
-}
 
-// const middleware = {
-//   serializableCheck: {
-//     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//   },
-// };
+const middleware = {
+  serializableCheck: {
+    ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+  },
+  logger,
+};
 
 const rootReducer = combineReducers({
   contacts: contactsReducer,
@@ -39,13 +29,5 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(middleware),
   devTools: process.env.NODE_ENV === "development",
 });
-
-// const store = configureStore({
-//   reducer: persisterReducer,
-//   middleware,
-//   devTools: process.env.NODE_ENV === "development",
-// });
-
-// const persistor = persistStore(store);
 
 export default store;
