@@ -6,6 +6,7 @@ import {
   deleteContact,
   fetchContacts,
 } from "../../redux/telbook/contacts-operation";
+
 import { filterContacts, getFilter } from "../../redux/telbook/selector.js";
 import Form from "../Forma/FormPhonebook";
 import ContactsList from "../PhoneContacts/PhoneContacts";
@@ -15,6 +16,8 @@ function PhoneBook() {
   const contacts = useSelector(filterContacts);
   const filters = useSelector(getFilter);
   const dispatch = useDispatch();
+
+  useEffect(() => dispatch(fetchContacts()), [dispatch]);
 
   const onSubmit = (data) => {
     const contact = {
@@ -33,11 +36,12 @@ function PhoneBook() {
     return contacts.find((el) => el.name === value);
   };
 
-  const delContact = (contactId) => {
-    dispatch(deleteContact(contactId));
+  const delContact = (id) => {
+    dispatch(deleteContact(id));
   };
+
   const filterContact = (e) => {
-    const { value } = e.currentTarget;
+    const value = e.currentTarget;
     dispatch(addFilter(value));
   };
 
@@ -54,6 +58,7 @@ function PhoneBook() {
       <div>
         <div>
           <h2 className={s.Contacts__title}>Contacts</h2>
+
           {contacts.length > 0 ? (
             <Filter filterContact={filterContact} value={filters} />
           ) : (
@@ -65,7 +70,5 @@ function PhoneBook() {
     </>
   );
 }
-export const mapDispatchTopProps = (dispatch) => ({
-  fetchContacts: () => dispatch(fetchContacts()),
-});
-export default connect(null, mapDispatchTopProps)(PhoneBook);
+
+export default PhoneBook;

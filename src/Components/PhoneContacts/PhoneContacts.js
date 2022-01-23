@@ -1,21 +1,13 @@
-import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import s from "./PhoneBook.module.css";
-import { fetchContacts } from "../../redux/telbook/contacts-operation";
-import { connect } from "react-redux";
+
 const ContactsList = ({ contacts = [], delContact }) => {
-  // useEffect(() => {
-  //   fetchContacts();
-  //   console.log("test");
-  //   console.log(contacts);
-  // }, []);
-  console.log(fetchContacts());
   return (
     <ul className={s.Contact__list}>
       {contacts.map((el) => (
         <li key={el.id} className={s.Contact__item}>
           <span>
-            {el.createdAt}:{el.name} : {el.phone}
+            {el.name} : {el.phone}
           </span>
           <button
             type="button"
@@ -38,8 +30,4 @@ ContactsList.propTypes = {
     })
   ),
 };
-
-// const mapDispatchToprops = (dispatch) => ({
-//   fetchContacts: () => dispatch(fetchContacts()),
-// });
 export default ContactsList;

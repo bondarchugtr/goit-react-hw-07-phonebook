@@ -1,7 +1,7 @@
 {
-  "name": "goit-react-hw-06-phonebook",
+  "name": "goit-react-hw-07-phonebook",
   "version": "0.1.0",
-  "homepage": "https://bondarchugtr.github.io/goit-react-hw-06-phonebook/",
+  "homepage": "https://bondarchugtr.github.io/goit-react-hw-07-phonebook/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
@@ -9,6 +9,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.25.0",
+    "memoize": "^0.1.1",
     "modern-normalize": "^1.1.0",
     "nanoid": "^3.1.30",
     "node": "^16.13.1",
@@ -24,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bondarchugtr/goit-react-hw-06-phonebook"
+    "url": "git+https://github.com/bondarchugtr/goit-react-hw-07-phonebook"
   },
   "scripts": {
     "start": "react-scripts start",

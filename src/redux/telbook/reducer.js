@@ -1,37 +1,38 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 import {
-  addContactRequest,
-  addContactSuccess,
-  addContactError,
-  deleteContactRequest,
-  deleteContactSuccess,
-  deleteContactError,
+  // addContactRequest,
+  // addContactSuccess,
+  // addContactError,
+  // deleteContactRequest,
+  // deleteContactSuccess,
+  // deleteContactError,
+  // fetchContactsRequest,
+  // fetchContactsSuccess,
+  // fetchContactsError,
   addFilter,
-  fetchContactsRequest,
-  fetchContactsSuccess,
-  fetchContactsError,
 } from "./action";
 
+import { fetchContacts, addContact, deleteContact } from "./contacts-operation";
 const itemReducer = createReducer([], {
-  [fetchContactsSuccess]: (state, { payload }) => payload,
-  [addContactSuccess]: (_, action) => action.payload,
-  [deleteContactSuccess]: (state, { payload }) =>
+  [fetchContacts.fulfilled]: (_, { payload }) => payload,
+  [addContact.fulfilled]: (state, action) => [...state, action.payload],
+  [deleteContact.fulfilled]: (state, { payload }) =>
     state.filter((contact) => contact.id !== payload),
 });
 
 const loading = createReducer(false, {
-  [addContactRequest]: () => true,
-  [addContactSuccess]: () => false,
-  [addContactError]: () => false,
+  [fetchContacts.pending]: () => true,
+  [addContact.fulfilled]: () => false,
+  [addContact.rejected]: () => false,
 
-  [deleteContactRequest]: () => true,
-  [deleteContactSuccess]: () => false,
-  [deleteContactError]: () => false,
+  [deleteContact.pending]: () => true,
+  [deleteContact.fulfilled]: () => false,
+  [deleteContact.rejected]: () => false,
 
-  [fetchContactsRequest]: () => true,
-  [fetchContactsSuccess]: () => false,
-  [fetchContactsError]: () => false,
+  [fetchContacts.pending]: () => true,
+  [fetchContacts.fulfilled]: () => false,
+  [fetchContacts.rejected]: () => false,
 });
 
 const filterReducer = createReducer("", {
@@ -40,4 +41,5 @@ const filterReducer = createReducer("", {
 export default combineReducers({
   items: itemReducer,
   filter: filterReducer,
+  loading: loading,
 });

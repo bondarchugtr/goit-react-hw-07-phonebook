@@ -7394,6 +7394,13 @@
   "resolved" "https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz"
   "version" "0.3.0"
 
+"memoize@^0.1.1":
+  "integrity" "sha1-0mWjRYvlzjvyVJmLMKmVq5FmiiQ="
+  "resolved" "https://registry.npmjs.org/memoize/-/memoize-0.1.1.tgz"
+  "version" "0.1.1"
+  dependencies:
+    "tosource" ">=0.1.1"
+
 "memory-fs@^0.4.1":
   "integrity" "sha1-OpoguEYlI+RHz7x+i7gO1me/xVI="
   "resolved" "https://registry.npmjs.org/memory-fs/-/memory-fs-0.4.1.tgz"
@@ -11087,6 +11094,11 @@
 "toidentifier@1.0.0":
   "integrity" "sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw=="
   "resolved" "https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.0.tgz"
+  "version" "1.0.0"
+
+"tosource@>=0.1.1":
+  "integrity" "sha1-QtiN0RZhi88A1hBt1URvNCeQL/E="
+  "resolved" "https://registry.npmjs.org/tosource/-/tosource-1.0.0.tgz"
   "version" "1.0.0"
 
 "tough-cookie@^2.3.3", "tough-cookie@~2.5.0":
