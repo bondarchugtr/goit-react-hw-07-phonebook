@@ -1,5 +1,4 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-// import logger from "redux-logger";
 import { createLogger } from "redux-logger";
 import contactsReducer from "../redux/telbook/reducer";
 import {
