@@ -1,4 +1,4 @@
-import { useSelector, useDispatch, connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { addFilter } from "../../redux/telbook/action";
 import {

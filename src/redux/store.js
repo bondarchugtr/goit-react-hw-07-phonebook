@@ -3,7 +3,7 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { createLogger } from "redux-logger";
 import contactsReducer from "../redux/telbook/reducer";
 import {
-  // persistStore,
+  persistStore,
   persistReducer,
   FLUSH,
   REHYDRATE,
@@ -40,6 +40,6 @@ const store = configureStore({
   middleware,
   devTools: process.env.NODE_ENV === "development",
 });
-// const persistor = persistStore(store);
+const persistor = persistStore(store);
 
 export default { store };
