@@ -61,13 +61,12 @@ export const addContact = createAsyncThunk(
 
   async (name) => {
     const contact = {
-      // id: nanoid(),
       name: name.name,
       phone: name.number,
     };
     try {
-      await axios.post("/contacts", contact);
-      return contact;
+      const { data } = await axios.post("/contacts", contact);
+      return data;
     } catch (error) {
       return error;
     }
