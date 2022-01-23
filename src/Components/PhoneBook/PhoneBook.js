@@ -17,6 +17,12 @@ function PhoneBook() {
   const filters = useSelector(getFilter);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (fetchContacts) {
+      dispatch(fetchContacts());
+    }
+  }, [dispatch]);
+
   const onSubmit = (data) => {
     const contact = {
       name: data.name,
