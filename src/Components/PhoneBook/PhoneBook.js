@@ -45,7 +45,7 @@ function PhoneBook() {
   };
 
   const filterContact = (e) => {
-    const value = e.currentTarget;
+    const { value } = e.currentTarget;
     dispatch(addFilter(value));
   };
 
